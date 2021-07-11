@@ -16,24 +16,25 @@
  * @default false
  *
  * @help This plugin is a port to RPG Maker MZ
- *  that RPG Maker MV plugin "Battle Results Popup" (made by Yoji Ojima).
+ * that RPG Maker MV plugin "Battle Results Popup" (made by Yoji Ojima).
  * This plugin displays a battle results window instead of text messages.
  * And, I have added a function to switch whether to show the message
- *  when leveling up.
+ * when leveling up.
  *
  * This plugin does not provide plugin commands.
  * 
  * Update History:
+ * ver.1.0.1 RMMZ 1.3.2 supported
  * ver.1.0 Release
  *
  * ---
  * This work is provided under the TKCM Blue License
  * - https://rpgmaker.materialcommons.org/tkcm-b-summary/
  * Require RPG Maker: RPG Maker MV
- * Credits display: Original plugin: Yoji Ojima
- *                  Ported for RPG Maker MZ: Tamaki Awana(https://razor-edge.work/)
+ * Credits display:
+ *  Original plugin: Yoji Ojima
+ *  Ported for RPG Maker MZ: Tamaki Awana(https://razor-edge.work/)
  */
-
 /*:ja
  * @target MZ
  * @plugindesc 戦闘結果の表示をポップアップ形式に変更します。
@@ -56,6 +57,7 @@
  * このプラグインには、プラグインコマンドはありません。
  *
  * 【更新履歴】
+ * ver.1.0.1 MZの1.3.2へ対応
  * ver.1.0 公開
  * 
  * ---
@@ -67,7 +69,7 @@
  */
 
 (() => {
-  const pluginName = "BattleResultsPopupMZ";
+  const pluginName = decodeURIComponent(document.currentScript.src).match(/([^\/]+)\.js$/)[1];
   const parameters = PluginManager.parameters(pluginName);
   const showlvup = String(parameters["ShowLevelUp"] || false);
 
