@@ -24,6 +24,8 @@
  * This plugin does not provide plugin commands.
  * 
  * Update History:
+ * ver.1.0.2 Code optimize
+ *           Fix window positions
  * ver.1.0.1 RMMZ 1.3.2 supported
  * ver.1.0 Release
  *
@@ -57,6 +59,8 @@
  * このプラグインには、プラグインコマンドはありません。
  *
  * 【更新履歴】
+ * ver.1.0.2 コードを最適化
+ *           ウィンドウの表示位置を調節
  * ver.1.0.1 MZの1.3.2へ対応
  * ver.1.0 公開
  * 
@@ -130,7 +134,7 @@
   };
 
   function Window_BattleResults() {
-    this.initialize.apply(this, arguments);
+    this.initialize(...arguments);
   }
 
   Window_BattleResults.prototype = Object.create(Window_Base.prototype);
@@ -138,10 +142,10 @@
 
   Window_BattleResults.prototype.initialize = function () {
     const rewards = BattleManager._rewards;
-    let ww = 400;
+    const ww = 400;
     let wh = this.fittingHeight(Math.min(9, rewards.items.length + 1));
     const statusHeight = this.fittingHeight(4);
-    let wx = (Graphics.boxWidth - ww) / 2;
+    const wx = (Graphics.boxWidth - ww) / 2;
     let wy = (Graphics.boxHeight - statusHeight - wh) / 2;
     Window_Base.prototype.initialize.call(this, new Rectangle(wx, wy, ww, wh));
     this.refresh();
